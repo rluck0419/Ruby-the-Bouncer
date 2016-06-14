@@ -3,11 +3,11 @@
 # - write a method "check_age" that runs every time the script is run
 # - ask for the user's age
 # - tell the user what it can do based on age:
-# - if the user is under 18, the user can do nothing
-# - if the user is over 18, the user can vote
-# - if the user is over 18, the user can smoke
-# - if the user is over 21, the user can drink
-# - if the user is over 25, the user can rent a car
+#   - if the user is under 18, the user can do nothing
+#   - if the user is over 18, the user can vote
+#   - if the user is over 18, the user can smoke
+#   - if the user is over 21, the user can drink
+#   - if the user is over 25, the user can rent a car
 
 puts "How old are you?"
 print "<Please enter your age:> "
