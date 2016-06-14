@@ -22,18 +22,15 @@ loop do
   # convert the user's age to an integer (having confirmed the user does not wish to quit)
   user_age = user_age.to_i
 
-# failsafe for 0-years-old and any other non-interger inputs
-  if user_age.zero?
-    puts "Sorry? I didn't understand that."
-# check each age group - 4 possibilities (under 18, under 21, under 25, over 25)
-  elsif user_age < 18
-    puts "Sorry! You're too young to do anything."
+ # Optional failsafe for 0-years-old and any other non-interger inputs
+  if user_age < 18
+    puts "Sorry! You're too young to do adult things."
   elsif user_age < 21
-    puts "Congradulations! You're old enough to vote and smoke!"
+    puts "Congratulations! You're old enough to vote and smoke!"
   elsif user_age < 25
-    puts "Congradulations! You're old enough to vote, smoke, and drink!"
+    puts "Congratulations! You're old enough to vote, smoke, and drink!"
   else
-    puts "Congradulations! You're old enough to vote, smoke, drink, and rent a car."
+    puts "Congratulations! You're old enough to vote, smoke, drink, and rent a car."
   end
   # creates spacing before restarting the loop
   puts

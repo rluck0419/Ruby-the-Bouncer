@@ -7,65 +7,55 @@
 #   paper beats rock
 #   scissors beats paper
 
-loop do
-  puts "Rock, Paper, Scissors, Shoot!"
-  print "<Enter (r)ock, (p)aper, or (s)cissors:> "
-  $player_choice = gets.chomp
-  if $player_choice == "r"
-    $player_choice = "ROCK"
-    break
-  elsif $player_choice == "p"
-    $player_choice = "PAPER"
-    break
-  elsif $player_choice == "s"
-    $player_choice = "SCISSORS"
-    break
-  else
-    puts "Sorry? Let's try that again..."
-    puts
+choices = ["ROCK", "PAPER", "SCISSORS"]
+wins = 0
+losses = 0
+ties = 0
+
+1000.times do
+  computer_choice1 = choices.sample
+  computer_choice2 = choices.sample
+
+  if computer_choice1 == "ROCK"
+    # tie
+    if computer_choice2 == "ROCK"
+      ties += 1
+    #lose
+    elsif computer_choice2 == "PAPER"
+      losses += 1
+    #win
+    else
+      wins += 1
+    end
+  elsif computer_choice1 == "PAPER"
+    #tie
+    if computer_choice2 == "PAPER"
+      ties += 1
+    #lose
+    elsif computer_choice2 == "SCISSORS"
+      losses += 1
+    #win
+    else
+      wins += 1
+    end
+  else #player choice is "SCISSORS"
+    #tie
+    if computer_choice2 == "SCISSORS"
+      ties += 1
+    #lose
+    elsif computer_choice2 == "ROCK"
+      losses += 1
+    #win
+    else
+      wins += 1
+    end
   end
 end
 
-computer_choice = rand(1..100)
-if computer_choice < 34
-  computer_choice = "ROCK"
-elsif computer_choice < 67
-  computer_choice = "PAPER"
-else
-  computer_choice = "SCISSORS"
-end
+wins2 = 1000 - wins - ties
+losses2 = 1000 - losses - ties
+ties2 = 1000 - wins - losses
 
-if $player_choice == "ROCK"
-  # tie
-  if computer_choice == "ROCK"
-    puts "player: #{$player_choice} vs. computer: #{computer_choice} ----- TIE"
-  #lose
-  elsif computer_choice == "PAPER"
-    puts "player: #{$player_choice} vs. computer: #{computer_choice} ----- COMPUTER WINS"
-  #win
-  else
-    puts "player: #{$player_choice} vs. computer: #{computer_choice} ----- PLAYER WINS"
-  end
-elsif $player_choice == "PAPER"
-  #tie
-  if computer_choice == "PAPER"
-    puts "player: #{$player_choice} vs. computer: #{computer_choice} ----- TIE"
-  #lose
-  elsif computer_choice == "SCISSORS"
-    puts "player: #{$player_choice} vs. computer: #{computer_choice} ----- COMPUTER WINS"
-  #win
-  else
-    puts "player: #{$player_choice} vs. computer: #{computer_choice} ----- PLAYER WINS"
-  end
-else #player choice is "SCISSORS"
-  #tie
-  if computer_choice == "SCISSORS"
-    puts "player: #{$player_choice} vs. computer: #{computer_choice} ----- TIE"
-  #lose
-  elsif computer_choice == "ROCK"
-    puts "player: #{$player_choice} vs. computer: #{computer_choice} ----- COMPUTER WINS"
-  #win
-  else
-    puts "player: #{$player_choice} vs. computer: #{computer_choice} ----- PLAYER WINS"
-  end
-end
+puts "1000 matches played! W-L-T"
+puts "Computer 1: #{wins}-#{losses}-#{ties}"
+puts "Computer 2: #{wins2}-#{losses2}-#{ties2}"
