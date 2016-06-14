@@ -25,8 +25,6 @@ loop do
 # failsafe for 0-years-old and any other non-interger inputs
   if user_age.zero?
     puts "Sorry? I didn't understand that."
-    print "<Please enter your age, or 'q' to quit:> "
-    user_age = gets.chomp.to_i
 # check each age group - 4 possibilities (under 18, under 21, under 25, over 25)
   elsif user_age < 18
     puts "Sorry! You're too young to do anything."
