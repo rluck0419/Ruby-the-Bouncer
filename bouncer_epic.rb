@@ -37,7 +37,7 @@ def unknown_input
 end
 
 loop do
-  puts "Are you from the US or the UK?"
+  puts "Are you in the US or the UK?"
   print "<Please enter (US) or (UK), or (Q) to quit:> "
   user_country = gets.chomp.upcase
   if user_country == 'Q'
